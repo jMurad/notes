@@ -3,7 +3,7 @@
 
 ## Содержание
 - [API](#api)
-- [Технологии](#технологии)
+- [Зависимости](#зависимости)
 - [Сборка и запуск](#сборка-и-запуск)
 - [Тестирование](#тестирование)
 
@@ -20,8 +20,7 @@
 * `POST` : Create a new note
 
 
-## Технологии
-- [Golang](https://go.dev/)
+## Зависимости
 - [Gorilla Sessions](https://github.com/gorilla/sessions/)
 - [gorilla/handlers](https://github.com/gorilla/handlers/)
 - [gorilla/mux](https://github.com/gorilla/mux/)
@@ -33,37 +32,41 @@
 ## Сборка и запуск
 Настройки проекта хранятся в файле конфигурации: `configs/notes.toml`
 
-команды записаны в make файле
+Скрипты для создания рабочей и тестовой БД лежат в директории: `tools/`
+
+#### Описание команд в make файле
+    build - сборка проекта
+    img-build - сборка Docker образа проекта 
+    img-del - удаление Docker образа проекта 
+    start - запуск postgres и проекта через docker-compose файл
+    stop - остановка и удаление запущенных контейнеров
+    init - скрипт для создания рабочей БД
+    init-test - скрипт для создания тестовой БД
+    run-pg - запуск Docker контейнера postgres
+    del-pg - остановка и удаление контейнера postgres
+    migrate - миграции
+    migrate-test - тестовые миграции
+    prod - сборка проекта, запуск docker-compose файла, создание БД и запуск миграций
+    test - автоматическое выполнение тестовых файлов
+
+### Сборка проекта
 ```sh
-#Сборка проекта
 make build
-
-#запуск postgres в контейнере Docker
 make run-pg
-
-#запуск проекта
 ./notes
 ```
 
-
+### Production сборка 
 ```sh
-#Production сборка 
 make prod
 ```
 
 ## Тестирование
-Шаблоны запросов cURL и Postman коллекция хранятся в директории `tools/`
 
 ```sh
-#Запустить контейнер postgres
 make run-pg
-
-#создать тестовую БД
 make init-test
-
-#запустить тестовые миграции
 make migrate-test
-
-#прогнать тесты
 make test
 ```
+Шаблоны запросов cURL и Postman коллекция хранятся в директории `test/`
