@@ -3,7 +3,11 @@ build:
 	go build -v ./cmd/notes
 
 img-build:
-	docker rmi notes_image; docker build -t notes_image .
+	make img-del
+	docker build -t notes_image .
+
+img-del:
+	docker rmi notes_image
 
 start:
 	docker compose down && docker compose up --build -d
@@ -28,6 +32,13 @@ migrate:
 
 migrate-test:
 	migrate -path migrations -database "postgres://postgres:123456@localhost:5432/notes_test?sslmode=disable" -verbose up
+
+
+prod:
+	make img-build
+	make start
+	make init
+	make migrate
 
 .PHONY: test
 test:
