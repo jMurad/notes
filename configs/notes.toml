@@ -1,0 +1,4 @@
+bind_addr = ":8080"
+log_level = "debug"
+database_url = "host=postgres user=postgres password=123456 dbname=notes_dev sslmode=disable"
+session_key="aSd_ssd*ds@D6Dj7D4%d_sS+sdds_s(JD*Dsbd$Sd"

@@ -1,0 +1,25 @@
+curl --location 'localhost:8080/users' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: NotesSession=MTcyNTI0MjU5NnxEWDhFQVFMX2dBQUJFQUVRQUFBZV80QUFBUVp6ZEhKcGJtY01DUUFIZFhObGNsOXBaQU5wYm5RRUFnQWN8Q_84X3hbX09lmRQDRjYVLp9uHhAuejSULDE8qbMyvh8=' \
+--data-raw '{
+    "email":"example@example.org",
+    "password":"password"
+}'
+
+curl --location 'localhost:8080/sessions' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: NotesSession=MTcyNTI0MjU5NnxEWDhFQVFMX2dBQUJFQUVRQUFBZV80QUFBUVp6ZEhKcGJtY01DUUFIZFhObGNsOXBaQU5wYm5RRUFnQWN8Q_84X3hbX09lmRQDRjYVLp9uHhAuejSULDE8qbMyvh8=' \
+--data-raw '{
+    "email":"example@example.org",
+    "password":"password"
+}'
+
+curl --location 'localhost:8080/private/notes' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: NotesSession=MTcyNTI0MjU5NnxEWDhFQVFMX2dBQUJFQUVRQUFBZV80QUFBUVp6ZEhKcGJtY01DUUFIZFhObGNsOXBaQU5wYm5RRUFnQWN8Q_84X3hbX09lmRQDRjYVLp9uHhAuejSULDE8qbMyvh8=' \
+--data '{
+    "content":"новая заметка по теме"
+}'
+
+curl --location 'localhost:8080/private/notes' \
+--header 'Cookie: NotesSession=MTcyNTI0MjU5NnxEWDhFQVFMX2dBQUJFQUVRQUFBZV80QUFBUVp6ZEhKcGJtY01DUUFIZFhObGNsOXBaQU5wYm5RRUFnQWN8Q_84X3hbX09lmRQDRjYVLp9uHhAuejSULDE8qbMyvh8='
