@@ -11,10 +11,10 @@ import (
 
 // Note ...
 type Note struct {
-	ID       int       `json:"id,omitempty"`
-	Created  time.Time `json:"created,omitempty"`
-	Content  string    `json:"content,omitempty"`
-	AuthorID int       `json:"author_id,omitempty"`
+	ID       int       `json:"id"`
+	Created  time.Time `json:"created"`
+	Content  string    `json:"content"`
+	AuthorID int       `json:"author_id"`
 }
 
 // Validate ...
